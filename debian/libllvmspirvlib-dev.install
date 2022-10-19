@@ -1,0 +1,3 @@
+usr/include
+usr/lib/libLLVMSPIRVLib.so
+usr/lib/pkgconfig/LLVMSPIRVLib.pc

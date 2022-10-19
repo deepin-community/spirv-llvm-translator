@@ -1,0 +1,52 @@
+Source: spirv-llvm-translator
+Section: libdevel
+Priority: optional
+Maintainer: Debian OpenCL team <pkg-opencl-devel@lists.alioth.debian.org>
+Uploaders: Timo Aaltonen <tjaalton@debian.org>
+Build-Depends: debhelper-compat (= 13),
+ cmake,
+ libclang-13-dev,
+ llvm-13-dev,
+ spirv-headers,
+Standards-Version: 4.6.0
+Homepage: https://github.com/KhronosGroup/SPIRV-LLVM-Translator
+Vcs-Browser: https://salsa.debian.org/opencl-team/spirv-llvm-translator
+Vcs-Git: https://salsa.debian.org/opencl-team/spirv-llvm-translator.git
+
+Package: libllvmspirvlib13
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends}
+Description: bi-directional translator for LLVM/SPIRV -- shared library
+ SPIRV-LLVM-translator is a LLVM/SPIRV bi-directional translator. This
+ package includes a library and a tool for translation between LLVM IR
+ and SPIR-V.
+ .
+ This package includes the shared library.
+
+Package: libllvmspirvlib-dev
+Architecture: any
+Depends:
+ libllvmspirvlib13 (= ${binary:Version}),
+ ${misc:Depends}
+Multi-Arch: same
+Description: bi-directional translator for LLVM/SPIRV -- development files
+ SPIRV-LLVM-translator is a LLVM/SPIRV bi-directional translator. This
+ package includes a library and a tool for translation between LLVM IR
+ and SPIR-V.
+ .
+ This package includes static libs and headers for development.
+
+Package: llvm-spirv
+Architecture: any
+Depends:
+ libllvmspirvlib13 (= ${binary:Version}),
+ ${shlibs:Depends},
+ ${misc:Depends}
+Description: bi-directional translator for LLVM/SPIRV
+ SPIRV-LLVM-translator is a LLVM/SPIRV bi-directional translator. This
+ package includes a library and a tool for translation between LLVM IR
+ and SPIR-V.
+ .
+ This package includes the llvm-spirv binary.
